@@ -1,0 +1,47 @@
+<div class="container">
+
+    <h2>User Availability Checker</h2>
+  
+    <form [formGroup]="form">
+      <input
+        type="text"
+        formControlName="username"
+        placeholder="Enter username"
+      />
+    </form>
+  
+    <div class="status">
+  
+      @if (status() === 'idle') {
+        <p>
+          Start typing a username
+        </p>
+      }
+  
+      @if (status() === 'checking') {
+        <p class="checking">
+          Checking availability...
+        </p>
+      }
+  
+      @if (status() === 'available') {
+        <p class="available">
+          ✔ Username is available
+        </p>
+      }
+  
+      @if (status() === 'taken') {
+        <p class="taken">
+          ✖ Username already taken
+        </p>
+      }
+  
+      @if (status() === 'error') {
+        <p class="error">
+          ⚠ Server error. Try again.
+        </p>
+      }
+  
+    </div>
+  
+  </div>
